@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Message for Priyanshi</title>
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Canvas for floating hearts and cherry blossom petals -->
+    <canvas id="particle-canvas"></canvas>
+
+
+    <!-- Instructions Overlay -->
+    <div class="instructions" id="instruction-tip">
+        Click the heart seal to open the letter ❤️
+    </div>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- 3D Envelope Container -->
+        <div class="envelope" id="letter-envelope">
+            <div class="envelope-lid"></div>
+            <div class="envelope-lid envelope-lid-secondary"></div>
+            
+            <div class="card-wrapper">
+                <div class="card" id="letter-card">
+                    <!-- Front / Cover of the card -->
+                    <div class="card-cover">
+                        <div class="card-cover-content">
+                            <span class="cover-subtitle">For a special someone</span>
+                            <h2 class="cover-title">Priyanshi</h2>
+                            <div class="cover-heart">❤️</div>
+                            <span class="cover-tap-prompt">Click to open card</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Inside content of the card -->
+                    <div class="card-body">
+                        <div class="card-content-scroller">
+                            <h3 class="letter-salutation">Dear Priyanshi,</h3>
+                            
+                            <div class="letter-text" id="typed-text">
+                                <!-- Paragraphs will be dynamically typed/revealed via JS -->
+                            </div>
+
+                            <!-- Interactive replies, visible after letter text is revealed -->
+                            <div class="reply-section" id="reply-container">
+                                <p class="reply-question">Would you like to get to know each other more? 😊</p>
+                                <div class="reply-buttons">
+                                    <button class="btn btn-yes" id="btn-yes">Yes, let's do it! ❤️</button>
+                                    <button class="btn btn-no" id="btn-no">Let's stay friends! 🌸</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Heart Seal that opens the envelope -->
+            <div class="heart-seal" id="envelope-seal"></div>
+        </div>
+    </main>
+
+    <!-- Response Modal Overlays -->
+    <div class="modal-backdrop" id="modal-yes">
+        <div class="modal-content">
+            <div class="modal-emoji">🎉💑✨</div>
+            <h2>That makes me so happy!</h2>
+            <p>I am looking forward to talking more, understanding each other, and seeing where this beautiful path takes us. Take all the time you need. ❤️</p>
+            <button class="btn btn-modal-close" onclick="closeModal('modal-yes')">Close</button>
+        </div>
+    </div>
+
+    <div class="modal-backdrop" id="modal-no">
+        <div class="modal-content">
+            <div class="modal-emoji">🌸😊✨</div>
+            <h2>Thank you for being honest!</h2>
+            <p>I completely respect your decision. Our friendship and the bond we share means a lot to me, and I promise it won't change. Let's always stay great friends!</p>
+            <button class="btn btn-modal-close" onclick="closeModal('modal-no')">Close</button>
+        </div>
+    </div>
+
+    <!-- Sound Fallback Info (Web Audio Synth) -->
+    <script type="module" src="./script.js"></script>
+    <script>
+        // Inline global function for closing modals
+        window.closeModal = function(id) {
+            document.getElementById(id).classList.remove('active');
+        };
+    </script>
+</body>
+</html>
